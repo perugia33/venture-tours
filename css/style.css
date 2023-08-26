@@ -1,0 +1,105 @@
+/* Reset default settings */
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Lato" , sans-serif;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.5;
+    padding: 30px;
+    color: whitesmoke;
+}
+
+
+.header{
+    height: 95vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(190, 159, 211, 0.4)), url(../images/japanese-garden.jpeg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.box-logo{
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.logo{
+    height: 40px;
+}
+
+.text-box{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    line-height: 2.5;
+    transform: translate(-10%, -50%);
+    text-align: center;
+    /* transform/translate moves center of text box */
+}
+.heading-primary{
+    text-transform: uppercase;
+    margin-bottom: 60px;
+}
+
+.heading-primary-main{
+    display: block;
+    font-size: 45px;
+    letter-spacing: 25px;
+    font-weight: 400;
+   animation: transition-left 4s ease-out;
+}
+
+/* Here are the option for animation:  animation: name duration 
+timing-function delay iteration-count direction fill-mode; */
+
+.heading-primary-second{
+    display: block;
+    font-size: 22px;
+    letter-spacing: 17px;
+    font-weight: 700;
+    margin-left: 10px;
+    animation: transition-right 2s ease-in 2s backwards;
+}
+
+@keyframes transition-left{
+    0%{
+        opacity: 0;
+        transform: translate(-100px);
+        /* Object is far off page and out of sight */
+    }
+
+    50%{
+        transform: translate(11px);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translate(0);
+        /* at zero, the element is at its original place */
+    } 
+        /* Added to first part of header to add fade-in from left */
+}
+
+@keyframes transition-right{
+    0%{
+        opacity: 0;
+        transform: translate(200px);
+        /* Object is far off page and out of sight */
+    }
+     /* 50%{
+        transform: translate(100px);
+    } */
+    100%{
+        opacity: 1;
+        transform: translate(0);
+        /* at zero, the element is at its original place */
+    } 
+    /* Added to second part of header to add fade-in from right */
+}
