@@ -103,3 +103,87 @@ timing-function delay iteration-count direction fill-mode; */
     } 
     /* Added to second part of header to add fade-in from right */
 }
+
+@keyframes transition-bottom{
+    0%{
+        opacity: 0;
+        transform: translateY(30px);
+        /* Object is far off page and out of sight */
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0);
+        /* at zero, the element is at its original place */
+    } 
+    /* Added to second part of header to add fade-in from right */
+}
+
+
+.btn:link,
+.btn:visited{
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 100px;
+    /* adding a high value for border-radius creates an oval shape */
+    transition: all .2s;
+    position: relative;
+   
+} 
+
+.btn-white{
+    background-color: whitesmoke;
+    color: rgb(110, 109, 109);
+    padding: 12px 36px;
+    display: inline-block;
+    /* Changing inline-text to inline-block */
+}
+
+.btn:hover{
+    color: indigo;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    /* For box-shadow values are in this order: x, y, blur, color */
+}   
+
+.btn:active{
+    /* transform: translateY(-1px); */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    /* By decreasing the value of 'Y' and blur as compared to hover state,
+    you give the illusion that the button is moving closer to the page and away 
+    from the user */
+} 
+
+.btn::after{
+    content: "";
+    display: inline-block;
+    height: 100%;  
+    /* This 100% of button's height */
+    width:100%;
+    border-radius: 100px;
+     /* Same as button's border-radius */
+    /* This is a pseudo element that duplicates the look of the orginal button
+    It goes behind the button */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    /* This puts the this element behind the first button */
+    transition: all .4s;
+    /* Using the transition property creates a more suble phasing in effect */
+
+} 
+
+.btn-white::after{
+    background-color: whitesmoke;
+    /* Adding back color white to 'after' element */
+}
+
+.btn:hover::after{
+    transform: scaleX(1.1) scaleY(1.2);
+      /* Upon hover the after element should grow.  Using scale() to define growth value */
+      opacity: 0;
+
+} 
+
+.btn-animated{
+    animation: transition-bottom 3s ease-out 4s backwards;
+}
